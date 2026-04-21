@@ -1,0 +1,187 @@
+{{ 'dvine-landing.css' | asset_url | stylesheet_tag }}
+
+<section class="dvine-landing">
+
+  <!-- VERSE BAR -->
+  <div class="di-verse-bar">
+    "So whether you eat or drink or whatever you do, do it all for the glory of God." — 1 Corinthians 10:31
+  </div>
+
+  <!-- HERO -->
+  <div class="di-hero">
+    <div class="di-cross-accent">
+      <div class="di-cross-line"></div>
+      <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="0" width="2" height="18" rx="1" fill="currentColor" opacity="0.4"/>
+        <rect x="1" y="4" width="12" height="2" rx="1" fill="currentColor" opacity="0.4"/>
+      </svg>
+      <div class="di-cross-line"></div>
+    </div>
+    <p class="di-hero-eyebrow">New collection — 2026</p>
+    <h1>Clothed in<br><em>faith &amp; purpose</em></h1>
+    <p class="di-hero-verse">"Put on the full armor of God." — Ephesians 6:11</p>
+    <p class="di-hero-desc">Faith-forward streetwear for those who wear their beliefs boldly. Every piece tells a story rooted in the Word.</p>
+    <div class="di-hero-btns">
+      <a href="/collections/all" class="di-btn-primary">Shop the collection</a>
+      <a href="/pages/our-mission" class="di-btn-secondary">Our mission</a>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="di-marquee-wrap">
+    <div class="di-marquee">
+      <span>Faith over fear</span><span class="di-dot">·</span>
+      <span>New arrivals</span><span class="di-dot">·</span>
+      <span>Wear the Word</span><span class="di-dot">·</span>
+      <span>Free shipping over $80</span><span class="di-dot">·</span>
+      <span>Blessed &amp; dressed</span><span class="di-dot">·</span>
+      <span>Limited drops</span><span class="di-dot">·</span>
+      <span>Faith over fear</span><span class="di-dot">·</span>
+      <span>New arrivals</span><span class="di-dot">·</span>
+      <span>Wear the Word</span><span class="di-dot">·</span>
+      <span>Free shipping over $80</span><span class="di-dot">·</span>
+      <span>Blessed &amp; dressed</span><span class="di-dot">·</span>
+      <span>Limited drops</span><span class="di-dot">·</span>
+    </div>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <div class="di-collections">
+    <div class="di-section-header">
+      <span class="di-section-title">Featured pieces</span>
+      <a href="/collections/all" class="di-section-link">View all →</a>
+    </div>
+    <div class="di-card-grid">
+      {%- for product in collections.all.products limit: 3 -%}
+        <a href="{{ product.url }}" class="di-card">
+          <div class="di-card-img">
+            {%- if product.featured_image -%}
+              <img
+                src="{{ product.featured_image | img_url: '600x800', crop: 'center' }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;"
+              />
+            {%- else -%}
+              <div class="di-card-placeholder">
+                <span>{{ product.title | truncate: 20 }}</span>
+              </div>
+            {%- endif -%}
+            {%- if product.tags contains 'new' -%}
+              <span class="di-label-overlay">New</span>
+            {%- elsif forloop.first -%}
+              <span class="di-label-overlay">Bestseller</span>
+            {%- endif -%}
+          </div>
+          <div class="di-card-body">
+            <div class="di-card-name">{{ product.title }}</div>
+            <div class="di-card-price">{{ product.price | money }}</div>
+          </div>
+        </a>
+      {%- else -%}
+        <div class="di-card">
+          <div class="di-card-img" style="background:#f0ece5;">
+            <span class="di-label-overlay">Bestseller</span>
+            <p class="di-placeholder-text">Add products to your store</p>
+          </div>
+          <div class="di-card-body">
+            <div class="di-card-name">Grace Oversized Tee</div>
+            <div class="di-card-price">$58.00</div>
+          </div>
+        </div>
+        <div class="di-card">
+          <div class="di-card-img" style="background:#e8ecee;">
+            <span class="di-label-overlay">New</span>
+            <p class="di-placeholder-text">Add products to your store</p>
+          </div>
+          <div class="di-card-body">
+            <div class="di-card-name">Armor Cargo Pants</div>
+            <div class="di-card-price">$95.00</div>
+          </div>
+        </div>
+        <div class="di-card">
+          <div class="di-card-img" style="background:#eceae6;">
+            <p class="di-placeholder-text">Add products to your store</p>
+          </div>
+          <div class="di-card-body">
+            <div class="di-card-name">Refuge Hoodie</div>
+            <div class="di-card-price">$120.00</div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <!-- BRAND STORY -->
+  <div class="di-split">
+    <div class="di-split-left">
+      <h2>More than fabric —<br>a declaration<br>of faith</h2>
+      <p>Dvine Intervention was born from the belief that how we dress is an act of worship. Our pieces carry meaning beyond the material.</p>
+      <blockquote class="di-scripture">
+        "Do not conform to the pattern of this world, but be transformed by the renewing of your mind."
+        <cite>— Romans 12:2</cite>
+      </blockquote>
+      <a href="/pages/our-mission" class="di-text-link">Read our story →</a>
+    </div>
+    <div class="di-split-right">
+      <svg width="160" height="200" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="30" width="120" height="150" rx="4" fill="currentColor" opacity="0.08"/>
+        <rect x="72" y="10" width="16" height="60" rx="3" fill="currentColor" opacity="0.18"/>
+        <rect x="48" y="28" width="64" height="14" rx="3" fill="currentColor" opacity="0.18"/>
+        <circle cx="80" cy="95" r="22" fill="currentColor" opacity="0.06" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.3"/>
+        <text x="80" y="101" text-anchor="middle" font-size="13" fill="currentColor" opacity="0.35" font-style="italic" font-family="var(--font-heading-family, Georgia, serif)">D·I</text>
+        <rect x="38" y="162" width="34" height="40" rx="2" fill="currentColor" opacity="0.08"/>
+        <rect x="88" y="162" width="34" height="40" rx="2" fill="currentColor" opacity="0.08"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div class="di-values">
+    <div class="di-value-item">
+      <div class="di-value-icon">✝</div>
+      <h3 class="di-value-title">Rooted in the Word</h3>
+      <p class="di-value-desc">Every design is inspired by scripture — a wearable reminder of God's promises over your life.</p>
+      <p class="di-value-verse">Colossians 3:17</p>
+    </div>
+    <div class="di-value-item">
+      <div class="di-value-icon">◇</div>
+      <h3 class="di-value-title">Built with integrity</h3>
+      <p class="di-value-desc">Quality materials, ethical production, and honest pricing — because stewardship matters.</p>
+      <p class="di-value-verse">Proverbs 11:3</p>
+    </div>
+    <div class="di-value-item">
+      <div class="di-value-icon">○</div>
+      <h3 class="di-value-title">Community first</h3>
+      <p class="di-value-desc">A portion of every sale supports local church communities and outreach programs.</p>
+      <p class="di-value-verse">Hebrews 10:24–25</p>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="di-newsletter">
+    <h2>Join the community</h2>
+    <p class="di-sub-verse">"Where two or three gather in my name, there am I with them." — Matthew 18:20</p>
+    <p class="di-newsletter-desc">Be first to hear about new drops, devotionals, and faith community events.</p>
+    {% form 'customer' %}
+      <input type="hidden" name="contact[tags]" value="newsletter" />
+      <div class="di-email-row">
+        <input type="email" name="contact[email]" placeholder="Your email address" autocomplete="email" />
+        <button type="submit">Subscribe</button>
+      </div>
+      {%- if form.posted_successfully? -%}
+        <p class="di-form-success">You're in. God bless!</p>
+      {%- endif -%}
+    {% endform %}
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Dvine Landing Page",
+  "tag": "section",
+  "class": "dvine-section",
+  "settings": []
+}
+{% endschema %}
